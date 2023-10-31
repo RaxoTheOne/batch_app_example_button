@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,13 +12,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.black,
         body: Center(
-          child: GestureDetector(
+          child: InkWell(
             onTap: () {
-              debugPrint('Button wurde gedrückt!');
+              if (kDebugMode) {
+                print('Button wurde gedrückt!');
+              }
             },
+            borderRadius: BorderRadius.circular(10),
             child: Container(
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: Colors.blue,
                 borderRadius: BorderRadius.circular(10),
@@ -30,20 +34,9 @@ class MyApp extends StatelessWidget {
                   ),
                 ],
               ),
-              child: Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(10),
-                  splashColor: Colors.white,
-                  onTap: () {},
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                    child: Text(
-                      'Button',
-                      style: TextStyle(color: Colors.white, fontSize: 24),
-                    ),
-                  ),
-                ),
+              child: const Text(
+                'Button',
+                style: TextStyle(color: Colors.white, fontSize: 24),
               ),
             ),
           ),
