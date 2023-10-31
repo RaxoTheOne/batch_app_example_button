@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
         body: Center(
           child: GestureDetector(
             onTap: () {
+              const Text('Button wurde gedrückt!');
             },
             child: Container(
               decoration: BoxDecoration(
